@@ -1,0 +1,5 @@
+treamlit
+numpy
+Pillow
+scikit-learn
+webcolors
