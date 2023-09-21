@@ -21,7 +21,7 @@ def closest_color(requested_color):
     return min_colors[min(min_colors.keys())]
 
 def extract_colors(image_path, n_colors=5):
-    color_thief = ColorThief(image_path)
+    color_thief = ColorThief(uploaded_file)  # Use uploaded file directly
     dominant_colors = color_thief.get_palette(color_count=n_colors)
 
     named_colors = []
@@ -63,10 +63,10 @@ st.title('Child Drawing Analysis')
 uploaded_file = st.file_uploader("Choose a drawing...", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    image = Image.open(uploaded_file)  # Use directly without reading
     st.image(image, caption='Uploaded Drawing.', use_column_width=True)
     
-    dominant_colors = extract_colors(image)
+    dominant_colors = extract_colors(uploaded_file)  # Pass the uploaded file directly
     interpretations = interpret_colors(dominant_colors)
     
     st.write(f"Dominant Colors: {', '.join(dominant_colors)}")
