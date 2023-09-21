@@ -1,4 +1,4 @@
-treamlit
+streamlit
 numpy
 Pillow
 scikit-learn
