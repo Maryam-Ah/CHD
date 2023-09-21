@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from colorthief import ColorThief
 
 # Include the functions: closest_color, extract_colors, and interpret_colors here
 
