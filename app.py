@@ -85,8 +85,8 @@ def interpret_colors(colors):
         interpretations.append("Yellow :Yellow is synonymous with energy, dynamism, joy and sociability. It’s a color that shows happy children. In addition, you see all of the virtues associated with childhood. However, using it frequently in drawings shows problems with authority figures.")
     if 'purple' in colors:
         interpretations.append("Purple :Using this color shows that the child feels melancholic, dissatisfied and restless for some reason. When used with yellow in drawings, it can mean that the child is overwhelmed by some type of pressure.")
-    if 'gray' in colors:
-        interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
+    # if 'gray' in colors:
+    #     interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
 
     if 'gray' in colors:
         interpretations.append("Gray :Gray is the color of restrained and quiet children. They should receive support in every endeavor. Give your child more attention so that his gray drawings become colored with all the colors of the rainbow..")
