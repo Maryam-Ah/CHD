@@ -4,4 +4,4 @@ Pillow
 scikit-learn
 webcolors
 colorthief
-opencv-python
+opencv-python==4.5.1
