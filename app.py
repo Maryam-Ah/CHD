@@ -54,7 +54,7 @@ def top_used_colors(uploaded_file, dominant_colors, top_n=3):
     white_rgb = np.array([255, 255, 255])
     gray_rgb = np.array([128, 128, 128])
     threshold_white = 100
-    threshold_gray = 80  # Adjust this threshold if necessary
+    threshold_gray = 100  # Adjust this threshold if necessary
 
     for pixel in pixels:
         pixel_array = np.array(pixel)
