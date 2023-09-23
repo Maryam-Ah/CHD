@@ -4,4 +4,4 @@ Pillow
 scikit-learn
 webcolors
 colorthief
-cv2
+opencv-python
