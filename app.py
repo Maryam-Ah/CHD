@@ -166,7 +166,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Drawing.', use_column_width=True)
     
-    dominant_colors = extract_opencv_colors(uploaded_file) # this been replaced- it was extract_colors
+    dominant_colors = extract_kmeans_colors(uploaded_file) # this been replaced- it was extract_colors
     top_colors = top_used_colors(uploaded_file, dominant_colors)
 
     st.write(f"Dominant Colors: {', '.join(dominant_colors)}")
