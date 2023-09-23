@@ -5,7 +5,8 @@ import webcolors
 from colorthief import ColorThief
 import numpy as np
 from sklearn.cluster import KMeans
-
+import cv2
+import numpy as np
 
 
 def closest_color_name(requested_color):
@@ -37,6 +38,7 @@ def generalize_color_name(color_name):
             return general_color
     return color_name
 
+# method 1
 def extract_colors(uploaded_file, n_colors=5):
     color_thief = ColorThief(uploaded_file)
     dominant_colors = color_thief.get_palette(color_count=n_colors)
@@ -46,7 +48,7 @@ def extract_colors(uploaded_file, n_colors=5):
 
     return generalized_colors
 
-
+#method 2
 def extract_kmeans_colors(uploaded_file, n_colors=5):
     # Load the image and convert it to RGB values
     img = Image.open(uploaded_file).convert("RGB")
@@ -68,7 +70,33 @@ def extract_kmeans_colors(uploaded_file, n_colors=5):
 
 
 
+#method 3
+def extract_opencv_colors(uploaded_file, n_colors=5):
+    # Load the image using OpenCV
+    img = cv2.cvtColor(np.array(Image.open(uploaded_file)), cv2.COLOR_RGB2BGR)
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    
+    # Define color ranges for the HSV space
+    # These are general ranges and may need adjustments
+    color_ranges = {
+        'red': [(0, 50, 20), (10, 255, 255)],
+        'blue': [(110, 50, 20), (130, 255, 255)],
+        'green': [(50, 50, 20), (70, 255, 255)],
+        'yellow': [(20, 50, 20), (40, 255, 255)],
+        'purple': [(140, 50, 20), (160, 255, 255)],
+        # Add other colors and their ranges if necessary
+    }
 
+    color_counts = {}
+    
+    for color, (lower, upper) in color_ranges.items():
+        mask = cv2.inRange(hsv_img, np.array(lower), np.array(upper))
+        color_counts[color] = cv2.countNonZero(mask)
+
+    # Sort colors based on their count
+    sorted_colors = sorted(color_counts, key=color_counts.get, reverse=True)
+    
+    return sorted_colors[:n_colors]
 
 
 
@@ -138,7 +166,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Drawing.', use_column_width=True)
     
-    dominant_colors = extract_kmeans_colors(uploaded_file) # this been replaced- it was extract_colors
+    dominant_colors = extract_opencv_colors(uploaded_file) # this been replaced- it was extract_colors
     top_colors = top_used_colors(uploaded_file, dominant_colors)
 
     st.write(f"Dominant Colors: {', '.join(dominant_colors)}")
