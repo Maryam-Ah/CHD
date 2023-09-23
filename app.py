@@ -4,6 +4,9 @@ from collections import defaultdict
 import webcolors
 from colorthief import ColorThief
 import numpy as np
+from sklearn.cluster import KMeans
+
+
 
 def closest_color_name(requested_color):
     min_colors = {}
@@ -42,6 +45,33 @@ def extract_colors(uploaded_file, n_colors=5):
     generalized_colors = [generalize_color_name(color) for color in named_colors]
 
     return generalized_colors
+
+
+def extract_kmeans_colors(uploaded_file, n_colors=5):
+    # Load the image and convert it to RGB values
+    img = Image.open(uploaded_file).convert("RGB")
+    
+    # Convert the image into an array of RGB values
+    img_array = np.array(img).reshape((img.width * img.height, 3))
+    
+    # Use KMeans clustering to find the dominant colors
+    kmeans = KMeans(n_clusters=n_colors)
+    kmeans.fit(img_array)
+    
+    # Extract the RGB values of the cluster centers
+    dominant_colors = kmeans.cluster_centers_
+    
+    # Convert RGB values to color names
+    named_colors = [generalize_color_name(closest_color_name(tuple(map(int, color)))) for color in dominant_colors]
+    
+    return named_colors
+
+
+
+
+
+
+
 
 def top_used_colors(uploaded_file, dominant_colors, top_n=3):
     img = Image.open(uploaded_file).convert("RGB")
@@ -108,7 +138,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Drawing.', use_column_width=True)
     
-    dominant_colors = extract_colors(uploaded_file)
+    dominant_colors = extract_kmeans_colors(uploaded_file) # this been replaced- it was extract_colors
     top_colors = top_used_colors(uploaded_file, dominant_colors)
 
     st.write(f"Dominant Colors: {', '.join(dominant_colors)}")
