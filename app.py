@@ -27,7 +27,7 @@ def generalize_color_name(color_name):
         'purple': ['lavender', 'thistle', 'plum', 'violet', 'orchid', 'fuchsia', 'magenta', 'mediumorchid', 'mediumpurple', 'blueviolet', 'darkviolet', 'darkorchid', 'darkmagenta', 'purple', 'indigo'],
         'brown': ['cornsilk', 'blanchedalmond', 'bisque', 'navajowhite', 'wheat', 'burlywood', 'tan', 'rosybrown', 'sandybrown', 'goldenrod', 'darkgoldenrod', 'peru', 'chocolate', 'saddlebrown', 'sienna', 'brown', 'maroon'],
         'white': ['white', 'snow', 'honeydew', 'mintcream', 'azure', 'aliceblue', 'ghostwhite', 'whitesmoke', 'seashell', 'beige', 'oldlace', 'floralwhite', 'ivory', 'antiquewhite', 'linen', 'lavenderblush', 'mistyrose'],
-        'gray': ['gainsboro', 'lightgray', 'silver', 'darkgray', 'gray', 'dimgray', 'lightslategray', 'slategray', 'darkslategray', 'black']
+        # 'gray': ['gainsboro', 'lightgray', 'silver', 'darkgray', 'gray', 'dimgray', 'lightslategray', 'slategray', 'darkslategray', 'black']
     }
     for general_color, specific_colors in color_map.items():
         if color_name in specific_colors:
@@ -92,8 +92,8 @@ def interpret_colors(colors):
     # if 'gray' in colors:
     #     interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
 
-    if 'gray' in colors:
-        interpretations.append("Gray :Gray is the color of restrained and quiet children. They should receive support in every endeavor. Give your child more attention so that his gray drawings become colored with all the colors of the rainbow..")
+    # if 'gray' in colors:
+    #     interpretations.append("Gray :Gray is the color of restrained and quiet children. They should receive support in every endeavor. Give your child more attention so that his gray drawings become colored with all the colors of the rainbow..")
     
     if not interpretations:
         return ["No specific interpretation available."]
