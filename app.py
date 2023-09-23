@@ -74,7 +74,20 @@ def interpret_colors(colors):
     if 'green' in colors:
         interpretations.append("green :The child might be expressing contentment, peace, or a connection with nature.")
     if 'red' in colors:
-        interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
+        interpretations.append("red :Red is a color that attracts kids’ attention because of its intensity. You can interpret its use in two different ways: If the child uses it often, he might be a hostile child with feelings of repressed anger. If the child uses it moderately, it can describe vitality and energy.")
+    if 'Blue' in colors:
+        interpretations.append("Blue :This color is associated with calmness, well-being and relaxation. It’s usually the favorite of calm or timid children. In addition, it awakens the sense of creativity and sensitivity in kids. Specialists estimate that children who use this color also develop self-control at younger ages. In addition, some children who use this color often have a condition called enuresis, a disorder that we also call “wetting the bed.")
+    if 'Black' in colors:
+        interpretations.append("Black :Contrary to popular belief, it’s a color that isn’t always linked to negative or depressed feelings. It actually describes a child with good self-esteem and self-confidence.")
+    if 'Brown' in colors:
+        interpretations.append("Brown :This color represents responsibility. In that sense, when children choose it, they show that they’re diligent and prudent. However, using it excessively shows that they’re overwhelmed by daily activities.")
+    if 'Yellow' in colors:
+        interpretations.append("Yellow :Yellow is synonymous with energy, dynamism, joy and sociability. It’s a color that shows happy children. In addition, you see all of the virtues associated with childhood. However, using it frequently in drawings shows problems with authority figures.")
+    if 'Purple' in colors:
+        interpretations.append("Purple :Using this color shows that the child feels melancholic, dissatisfied and restless for some reason. When used with yellow in drawings, it can mean that the child is overwhelmed by some type of pressure.")
+    # if 'red' in colors:
+    #     interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
+    
     if not interpretations:
         return ["No specific interpretation available."]
     return interpretations
