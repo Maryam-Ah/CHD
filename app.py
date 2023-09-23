@@ -45,7 +45,9 @@ def interpret_colors(dominant_colors):
 
 # Streamlit UI
 st.title('Child Drawing Analysis')
+st.header("Unhappiness, shyness, empathy or repressed anger are some of the feelings you can identify in your children's drawings. Find out how to interpret the colors your children draw with.")
 
+          
 uploaded_file = st.file_uploader("Choose a drawing...", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_file is not None:
