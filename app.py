@@ -52,11 +52,15 @@ def top_used_colors(uploaded_file, dominant_colors, top_n=3):
     color_counts = defaultdict(int)
     
     white_rgb = np.array([255, 255, 255])
-    threshold = 100
+    gray_rgb = np.array([128, 128, 128])
+    threshold_white = 100
+    threshold_gray = 30  # Adjust this threshold if necessary
 
     for pixel in pixels:
         pixel_array = np.array(pixel)
-        if np.linalg.norm(pixel_array - white_rgb) < threshold:
+        
+        # Exclude white and grayish pixels
+        if np.linalg.norm(pixel_array - white_rgb) < threshold_white or np.linalg.norm(pixel_array - gray_rgb) < threshold_gray:
             continue
 
         closest_dom_color = dominant_rgb_colors[np.argmin([np.sum((pixel_array - np.array(col))**2) for col in dominant_rgb_colors])]
