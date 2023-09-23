@@ -72,9 +72,9 @@ def top_used_colors(uploaded_file, dominant_colors, top_n=3):
 def interpret_colors(colors):
     interpretations = []
     if 'green' in colors:
-        interpretations.append("The child might be expressing contentment, peace, or a connection with nature.")
+        interpretations.append("green :The child might be expressing contentment, peace, or a connection with nature.")
     if 'red' in colors:
-        interpretations.append("The child might be experiencing strong emotions such as anger, love, or fear.")
+        interpretations.append("red :The child might be experiencing strong emotions such as anger, love, or fear.")
     if not interpretations:
         return ["No specific interpretation available."]
     return interpretations
